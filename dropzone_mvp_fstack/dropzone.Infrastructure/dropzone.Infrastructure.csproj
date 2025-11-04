@@ -6,4 +6,14 @@
         <Nullable>enable</Nullable>
     </PropertyGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\dropzone.Application\dropzone.Application.csproj" />
+      <ProjectReference Include="..\dropzone.Domain\dropzone.Domain.csproj" />
+      <ProjectReference Include="..\dropzone.Persistence\dropzone.Persistence.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="9.0.10" />
+    </ItemGroup>
+
 </Project>
