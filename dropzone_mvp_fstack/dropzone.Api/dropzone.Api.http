@@ -1,0 +1,6 @@
+@dropzone.Api_HostAddress = http://localhost:5252
+
+GET {{dropzone.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
