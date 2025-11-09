@@ -4,7 +4,7 @@ using dropzone.Infrastructure;
 using dropzone.Application;
 using Microsoft.EntityFrameworkCore;
 
-var builder = WebApplication.CreateBuilder(args);
+var builder = WebApplication.CreateBuilder(args) ?? throw new ArgumentNullException("WebApplication.CreateBuilder(args)");
 var configuration = builder.Configuration;
 var services = builder.Services;
 
@@ -16,7 +16,16 @@ services.AddPersistence(configuration);
 
 // Swagger
 services.AddEndpointsApiExplorer();
-services.AddSwaggerGen();
+services.AddSwaggerGen(c =>
+{
+    c.SwaggerDoc("v1", new OpenApiInfo
+    {
+        Title = "Dropzone API",
+        Version = "v1",
+        Description = "API MVP Swagger"
+    });
+    c.CustomSchemaIds(type => type.FullName);
+});
 
 var app = builder.Build();
 

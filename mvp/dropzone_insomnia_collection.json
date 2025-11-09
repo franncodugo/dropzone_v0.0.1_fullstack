@@ -1,0 +1,78 @@
+{
+  "_type": "export",
+  "__export_format": 4,
+  "__export_date": "2025-11-07T18:40:00.000Z",
+  "__export_source": "ChatGPT Dropzone Backend MVP",
+  "resources": [
+    {
+      "_id": "wrk_dropzone",
+      "_type": "workspace",
+      "name": "Dropzone API MVP",
+      "description": "Collection to test Dropzone file upload endpoints",
+      "scope": "collection"
+    },
+    {
+      "_id": "env_dropzone_base",
+      "_type": "environment",
+      "parentId": "wrk_dropzone",
+      "name": "Base Environment",
+      "data": {
+        "base_url": "http://localhost:5252/api"
+      }
+    },
+    {
+      "_id": "req_list_files",
+      "_type": "request",
+      "parentId": "wrk_dropzone",
+      "name": "📂 List All Files",
+      "method": "GET",
+      "url": "{{ base_url }}/files",
+      "headers": [
+        { "name": "Accept", "value": "application/json" }
+      ]
+    },
+    {
+      "_id": "req_upload_file",
+      "_type": "request",
+      "parentId": "wrk_dropzone",
+      "name": "⬆️ Upload File",
+      "method": "POST",
+      "url": "{{ base_url }}/files/upload",
+      "headers": [
+        { "name": "Accept", "value": "application/json" }
+      ],
+      "body": {
+        "mimeType": "multipart/form-data",
+        "params": [
+          {
+            "name": "File",
+            "type": "file",
+            "fileName": "/absolute/path/to/your/video.mp4"
+          }
+        ]
+      }
+    },
+    {
+      "_id": "req_download_file",
+      "_type": "request",
+      "parentId": "wrk_dropzone",
+      "name": "⬇️ Download File by ID",
+      "method": "GET",
+      "url": "{{ base_url }}/files/{{file_id}}/download",
+      "headers": [
+        { "name": "Accept", "value": "application/octet-stream" }
+      ]
+    },
+    {
+      "_id": "req_delete_file",
+      "_type": "request",
+      "parentId": "wrk_dropzone",
+      "name": "🗑️ Delete File by ID",
+      "method": "DELETE",
+      "url": "{{ base_url }}/files/{{file_id}}",
+      "headers": [
+        { "name": "Accept", "value": "application/json" }
+      ]
+    }
+  ]
+}

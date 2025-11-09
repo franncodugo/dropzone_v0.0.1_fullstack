@@ -1,4 +1,5 @@
-﻿using dropzone.Application.Services;
+﻿using dropzone.Application.DTOs;
+using dropzone.Application.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace dropzone.Api.Controllers;
@@ -24,14 +25,12 @@ public class FileUploadsController(IFileService fileService, ILogger<FileUploads
         return File(stream, "application/octet-stream", enableRangeProcessing: true);
     }
 
-    [HttpPost]
-    [RequestSizeLimit(200_000_000)] // 200 MB
-    public async Task<IActionResult> Upload([FromForm] IFormFile file)
+    [HttpPost("upload")]
+    [Consumes("multipart/form-data")]
+    public async Task<IActionResult> Upload([FromForm] FileUploadRequest request)
     {
-        if (file == null || file.Length == 0) return BadRequest("No file provided");
-
-        var dto = await fileService.UploadAsync(file);
-        return CreatedAtAction(nameof(Get), new { id = dto.Id }, dto);
+        var result = await fileService.UploadAsync(request.File);
+        return Ok(result);
     }
 
     [HttpDelete("{id:guid}")]
