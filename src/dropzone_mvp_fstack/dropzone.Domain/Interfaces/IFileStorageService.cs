@@ -1,4 +1,4 @@
-﻿namespace dropzone.Infrastructure.Storage;
+﻿namespace dropzone.Domain.Interfaces;
 
 public interface IFileStorageService
 {

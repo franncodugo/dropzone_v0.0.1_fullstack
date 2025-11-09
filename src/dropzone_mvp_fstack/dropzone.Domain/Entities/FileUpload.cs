@@ -10,5 +10,5 @@ public sealed class FileUpload
     public DateTime UploadedAt { get; set; } = DateTime.UtcNow;
 
     // Optional
-    // public Guid? UploadedById { get; set; }
+    public Guid? UploadedById { get; set; }
 }

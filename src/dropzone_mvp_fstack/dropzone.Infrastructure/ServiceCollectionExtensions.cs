@@ -1,4 +1,5 @@
-﻿using dropzone.Infrastructure.Storage;
+﻿using dropzone.Domain.Interfaces;
+using dropzone.Infrastructure.Storage;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
