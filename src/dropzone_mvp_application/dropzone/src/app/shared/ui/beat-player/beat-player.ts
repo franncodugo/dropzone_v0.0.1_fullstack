@@ -1,11 +1,10 @@
 import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-beat-player',
-  imports: [],
+  standalone: true,
+  imports: [CommonModule],
   templateUrl: './beat-player.html',
-  styleUrl: './beat-player.css',
 })
-export class BeatPlayer {
-
-}
+export class BeatPlayer {}

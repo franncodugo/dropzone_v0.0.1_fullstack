@@ -1,0 +1,15 @@
+<aside class="w-72 bg-gray-900 border-r border-gray-800 p-4 flex flex-col gap-4">
+  <button class="bg-cyan-600 hover:bg-cyan-500 text-white rounded-lg py-2 px-4 font-medium transition">
+    + Add video
+  </button>
+  <h2 class="text-lg font-medium">Your videos</h2>
+  <ul class="space-y-3">
+    <li *ngFor="let video of videos" (click)="selectVideo.emit(video)" class="video-item flex items-center gap-3 cursor-pointer transition">
+      <img [src]="video.image" [alt]="video.title" class="w-14 h-14 rounded-md object-cover" />
+      <div>
+        <h3 class="video-title text-sm font-semibold">{{ video.title }}</h3>
+        <p class="video-meta">{{ video.moments }} moments – {{ video.duration }}</p>
+      </div>
+    </li>
+  </ul>
+</aside>

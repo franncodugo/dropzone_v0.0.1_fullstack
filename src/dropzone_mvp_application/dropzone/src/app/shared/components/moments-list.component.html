@@ -1,0 +1,12 @@
+<section class="moments-list">
+  <h2 class="text-2xl font-semibold">Your moments</h2>
+  <ul class="mt-4 space-y-3">
+    <li *ngFor="let m of moments" class="flex items-center gap-3">
+      <span class="dot bg-cyan-600 w-2 h-2 rounded-full block mt-1"></span>
+      <div>
+        <div class="text-sm font-medium">{{ m.time }} — {{ m.title }}</div>
+      </div>
+    </li>
+  </ul>
+  <button (click)="onAddMoment()" class="mt-6 bg-cyan-600 text-white px-4 py-2 rounded-lg">+ New moment</button>
+</section>

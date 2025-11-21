@@ -2,10 +2,10 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'app-hero',
+  selector: 'app-header',
   standalone: true,
   imports: [CommonModule],
-  templateUrl: './hero.html',
-  styleUrls: ['./hero.css'],
+  templateUrl: './header.component.html',
+  styleUrls: ['./header.component.css']
 })
-export class Hero {}
+export class HeaderComponent {}

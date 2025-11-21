@@ -1,0 +1,24 @@
+<div class="min-h-screen bg-gradient-to-b from-gray-950 to-black text-white flex flex-col">
+  <app-header></app-header>
+
+  <main class="flex flex-1 items-stretch justify-center p-6">
+    <div class="app-shell w-full max-w-6xl rounded-2xl border border-gray-800 bg-black/60 backdrop-blur-md p-6 flex gap-6">
+      <div class="left"><app-sidebar (selectVideo)="onSelectVideo($event)"></app-sidebar></div>
+
+      <div class="center flex-1">
+        <button class="text-gray-400 hover:text-gray-200 transition self-start mb-2">← Back</button>
+        <app-beat-player [video]="selectedVideo" (markMoment)="onMarkMoment($event)"></app-beat-player>
+        <div class="flex items-center justify-between mt-4">
+          <span class="text-gray-400 font-mono">{{ momentsList[0]?.time || '00:00:00' }}</span>
+          <button class="bg-cyan-600 hover:bg-cyan-500 text-white rounded-lg px-4 py-2 text-sm font-medium transition">Mark moment</button>
+        </div>
+        <div class="mt-6"><app-moments-list [moments]="momentsList" (addMoment)="onAddMoment($event)"></app-moments-list></div>
+      </div>
+
+      <aside class="right w-80">
+        <h3 class="text-lg font-semibold mb-4">Your moments</h3>
+        <app-moments-list [moments]="momentsList"></app-moments-list>
+      </aside>
+    </div>
+  </main>
+</div>

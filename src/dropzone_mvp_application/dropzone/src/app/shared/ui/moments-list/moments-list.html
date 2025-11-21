@@ -1,1 +1,20 @@
-<p>moments-list works!</p>
+<div class="bg-gray-900 border border-gray-800 rounded-xl p-6 flex flex-col gap-4">
+  <h2 class="text-lg font-semibold">Your moments</h2>
+
+  <ul class="space-y-3">
+    <li
+      *ngFor="let moment of moments"
+      class="flex items-center gap-2 text-gray-200 text-sm"
+    >
+      <span class="w-2 h-2 rounded-full bg-cyan-500"></span>
+      <span class="font-mono text-cyan-300">{{ moment.time }}</span> –
+      <span>{{ moment.title }}</span>
+    </li>
+  </ul>
+
+  <button
+    class="bg-cyan-600 hover:bg-cyan-500 text-white text-sm font-medium rounded-lg px-4 py-2 self-start transition"
+  >
+    + New moment
+  </button>
+</div>
